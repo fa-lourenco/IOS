@@ -10,59 +10,72 @@ import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
-    // MARK: Properties
+//  MARK: Properties
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var mealLabel: UILabel!
+    @IBOutlet weak var photoImageView: UIImageView!
     
-    // MARK: Actions
-    @IBAction func btnLabelText(_ sender: UIButton) {
-        mealLabel.text="Default Text"
-    }
-    
-    @IBAction func selectImageFromGallery(_ sender: UITapGestureRecognizer) {
-        //Hide Keyboard
-        textField.resignFirstResponder()
-//      ImagePicker View
-        let imagePickerController = UIImagePickerController()
-//       photos in gallery only
-    imagePickerController.sourceType = .photoLibrary
-//        viewController is notified when image is selected
-        imagePickerController.delegate=self
-        present(imagePickerController, animated:true, completion: nil)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
-    }
-    //    MARK:UIImagePickerControllerDelegate
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-//        dismiss image selection
-        dismiss(animated:true, completion: nil)
-    }
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-//        multiple representations of an image. (use original)
-        guard let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage else
-        {
-            fatalError("Expected and image, the provided file was (file)")
-        }
+        // Handle the text field’s user input through delegate callbacks.
+        textField.delegate = self
     }
     
-    // MARK: UITextFieldDelegate
+    //MARK: UITextFieldDelegate
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        //Hide Keyboard
+        // Hide the keyboard.
         textField.resignFirstResponder()
         return true
     }
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
         mealLabel.text = textField.text
+        textField.text = ""
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        // Handle text Field user input through delegate
-        textField.delegate=self
+    
+    //MARK: UIImagePickerControllerDelegate
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        // Dismiss the picker if the user canceled.
+        dismiss(animated: true, completion: nil)
     }
-
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        // The info dictionary may contain multiple representations of the image. You want to use the original.
+        guard let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage else {
+            fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
+        }
+        
+        // Set photoImageView to display the selected image.
+        photoImageView.image = selectedImage
+        
+        // Dismiss the picker.
+        dismiss(animated: true, completion: nil)
+    }
+    //MARK: Actions
+    @IBAction func tapToSelectImage(_ sender: UITapGestureRecognizer) {
+        // Hide the keyboard.
+        textField.resignFirstResponder()
+        
+        // UIImagePickerController is a view controller that lets a user pick media from their photo library.
+        let imagePickerController = UIImagePickerController()
+        
+        // Only allow photos to be picked, not taken.
+        imagePickerController.sourceType = .photoLibrary
+        
+        // Make sure ViewController is notified when the user picks an image.
+        imagePickerController.delegate = self
+        present(imagePickerController, animated: true, completion: nil)
+    }
+    
+    @IBAction func setDefaultText(_ sender: UIButton) {mealLabel.text = "Meal"
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+//   Dispose of any resources that can be recreated.
     }
 
 

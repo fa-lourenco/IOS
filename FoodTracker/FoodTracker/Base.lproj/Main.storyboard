@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -16,11 +16,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="PR4-CQ-tcU">
-                                <rect key="frame" x="16" y="40" width="288" height="392.5"/>
+                                <rect key="frame" x="16" y="40" width="343" height="447.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tkt-Qt-VJ9">
                                         <rect key="frame" x="0.0" y="0.0" width="37" height="20.5"/>
@@ -29,7 +29,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What did you eat?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FrW-JW-cPK">
-                                        <rect key="frame" x="0.0" y="28.5" width="288" height="30"/>
+                                        <rect key="frame" x="0.0" y="28.5" width="343" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="name"/>
@@ -38,17 +38,20 @@
                                         <rect key="frame" x="0.0" y="66.5" width="36" height="30"/>
                                         <state key="normal" title="Clear"/>
                                         <connections>
-                                            <action selector="btnLabelText:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BP0-D1-1Zh"/>
+                                            <action selector="setDefaultText:" destination="BYZ-38-t0r" eventType="touchUpInside" id="K7X-U2-uJM"/>
                                         </connections>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="250" placeholderIntrinsicHeight="250" insetsLayoutMarginsFromSafeArea="NO" image="placeholderImage" translatesAutoresizingMaskIntoConstraints="NO" id="70K-ze-flO">
-                                        <rect key="frame" x="0.0" y="104.5" width="288" height="288"/>
+                                    <imageView contentMode="scaleToFill" placeholderIntrinsicWidth="250" placeholderIntrinsicHeight="250" insetsLayoutMarginsFromSafeArea="NO" image="placeholderImage" translatesAutoresizingMaskIntoConstraints="NO" id="70K-ze-flO">
+                                        <rect key="frame" x="0.0" y="104.5" width="343" height="343"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="70K-ze-flO" secondAttribute="height" multiplier="1:1" id="CeL-6M-TlN"/>
                                             <constraint firstAttribute="width" secondItem="70K-ze-flO" secondAttribute="height" multiplier="1:1" id="LJf-q9-MS2"/>
                                             <constraint firstAttribute="width" secondItem="70K-ze-flO" secondAttribute="height" multiplier="1:1" id="QuL-Pb-Lsz"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="hT4-3o-cbn" appends="YES" id="1RA-jD-SLc"/>
+                                        </connections>
                                     </imageView>
                                 </subviews>
                                 <constraints>
@@ -68,14 +71,14 @@
                     </view>
                     <connections>
                         <outlet property="mealLabel" destination="tkt-Qt-VJ9" id="nn8-rh-W8r"/>
-                        <outlet property="photoImageView" destination="70K-ze-flO" id="ziW-VI-Gh7"/>
+                        <outlet property="photoImageView" destination="70K-ze-flO" id="yxe-FQ-mCh"/>
                         <outlet property="textField" destination="FrW-JW-cPK" id="wDG-IH-CiK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="cin-IH-d63">
+                <tapGestureRecognizer id="hT4-3o-cbn">
                     <connections>
-                        <action selector="selectImageFromGallery:" destination="BYZ-38-t0r" id="d6W-fb-Mx3"/>
+                        <action selector="tapToSelectImage:" destination="BYZ-38-t0r" id="6nw-jx-SGS"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
