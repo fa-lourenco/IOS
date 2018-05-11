@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD73280C20A5B3BD00B472F1 /* ratingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD73280B20A5B3BD00B472F1 /* ratingControl.swift */; };
+		ADC3B79C20A5F9F10076F5C2 /* fa-brands-400.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ADC3B79B20A5F9F10076F5C2 /* fa-brands-400.ttf */; };
 		ADC7CB6120A44EEB0056EB08 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC7CB6020A44EEB0056EB08 /* AppDelegate.swift */; };
 		ADC7CB6320A44EEB0056EB08 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC7CB6220A44EEB0056EB08 /* ViewController.swift */; };
 		ADC7CB6620A44EEB0056EB08 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADC7CB6420A44EEB0056EB08 /* Main.storyboard */; };
@@ -34,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AD73280B20A5B3BD00B472F1 /* ratingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ratingControl.swift; sourceTree = "<group>"; };
+		ADC3B79B20A5F9F10076F5C2 /* fa-brands-400.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-brands-400.ttf"; sourceTree = "<group>"; };
 		ADC7CB5D20A44EEB0056EB08 /* FoodTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADC7CB6020A44EEB0056EB08 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADC7CB6220A44EEB0056EB08 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -74,9 +78,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AD1302F620A5F7CB00389817 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				ADC3B79B20A5F9F10076F5C2 /* fa-brands-400.ttf */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		ADC7CB5420A44EEB0056EB08 = {
 			isa = PBXGroup;
 			children = (
+				AD1302F620A5F7CB00389817 /* Resources */,
 				ADC7CB5F20A44EEB0056EB08 /* FoodTracker */,
 				ADC7CB7420A44EEB0056EB08 /* FoodTrackerTests */,
 				ADC7CB7F20A44EEB0056EB08 /* FoodTrackerUITests */,
@@ -99,6 +112,7 @@
 			children = (
 				ADC7CB6020A44EEB0056EB08 /* AppDelegate.swift */,
 				ADC7CB6220A44EEB0056EB08 /* ViewController.swift */,
+				AD73280B20A5B3BD00B472F1 /* ratingControl.swift */,
 				ADC7CB6420A44EEB0056EB08 /* Main.storyboard */,
 				ADC7CB6720A44EEB0056EB08 /* Assets.xcassets */,
 				ADC7CB6920A44EEB0056EB08 /* LaunchScreen.storyboard */,
@@ -232,6 +246,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADC3B79C20A5F9F10076F5C2 /* fa-brands-400.ttf in Resources */,
 				ADC7CB6B20A44EEB0056EB08 /* LaunchScreen.storyboard in Resources */,
 				ADC7CB6820A44EEB0056EB08 /* Assets.xcassets in Resources */,
 				ADC7CB6620A44EEB0056EB08 /* Main.storyboard in Resources */,
@@ -259,6 +274,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD73280C20A5B3BD00B472F1 /* ratingControl.swift in Sources */,
 				ADC7CB6320A44EEB0056EB08 /* ViewController.swift in Sources */,
 				ADC7CB6120A44EEB0056EB08 /* AppDelegate.swift in Sources */,
 			);

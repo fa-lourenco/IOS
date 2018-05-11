@@ -19,29 +19,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="PR4-CQ-tcU">
-                                <rect key="frame" x="16" y="40" width="343" height="447.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="PR4-CQ-tcU">
+                                <rect key="frame" x="16" y="40" width="343" height="707.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tkt-Qt-VJ9">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Meal" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tkt-Qt-VJ9">
                                         <rect key="frame" x="0.0" y="0.0" width="37" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What did you eat?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FrW-JW-cPK">
+                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What did you eat?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FrW-JW-cPK">
                                         <rect key="frame" x="0.0" y="28.5" width="343" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="name"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YqT-9M-B4Z">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YqT-9M-B4Z">
                                         <rect key="frame" x="0.0" y="66.5" width="36" height="30"/>
                                         <state key="normal" title="Clear"/>
                                         <connections>
                                             <action selector="setDefaultText:" destination="BYZ-38-t0r" eventType="touchUpInside" id="K7X-U2-uJM"/>
                                         </connections>
                                     </button>
-                                    <imageView contentMode="scaleToFill" placeholderIntrinsicWidth="250" placeholderIntrinsicHeight="250" insetsLayoutMarginsFromSafeArea="NO" image="placeholderImage" translatesAutoresizingMaskIntoConstraints="NO" id="70K-ze-flO">
+                                    <imageView contentMode="scaleToFill" ambiguous="YES" placeholderIntrinsicWidth="250" placeholderIntrinsicHeight="250" insetsLayoutMarginsFromSafeArea="NO" image="placeholderImage" translatesAutoresizingMaskIntoConstraints="NO" id="70K-ze-flO">
                                         <rect key="frame" x="0.0" y="104.5" width="343" height="343"/>
                                         <gestureRecognizers/>
                                         <constraints>
@@ -53,6 +53,9 @@
                                             <outletCollection property="gestureRecognizers" destination="hT4-3o-cbn" appends="YES" id="1RA-jD-SLc"/>
                                         </connections>
                                     </imageView>
+                                    <stackView opaque="NO" contentMode="scaleAspectFill" ambiguous="YES" distribution="equalSpacing" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="EDu-6E-vSU" customClass="ratingControl" customModule="FoodTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="455.5" width="343" height="252"/>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="FrW-JW-cPK" secondAttribute="trailing" id="SKE-cr-Sex"/>
@@ -65,13 +68,13 @@
                         <constraints>
                             <constraint firstItem="PR4-CQ-tcU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="9PL-6P-J7I"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PR4-CQ-tcU" secondAttribute="trailing" constant="16" id="esD-Vr-wIH"/>
-                            <constraint firstItem="PR4-CQ-tcU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="m4A-yf-DRg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="mealLabel" destination="tkt-Qt-VJ9" id="nn8-rh-W8r"/>
                         <outlet property="photoImageView" destination="70K-ze-flO" id="yxe-FQ-mCh"/>
+                        <outlet property="ratingControl" destination="EDu-6E-vSU" id="KG0-OA-He7"/>
                         <outlet property="textField" destination="FrW-JW-cPK" id="wDG-IH-CiK"/>
                     </connections>
                 </viewController>
@@ -82,7 +85,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="116.25" y="117.25352112676056"/>
+            <point key="canvasLocation" x="115.5" y="116.5"/>
         </scene>
     </scenes>
     <resources>

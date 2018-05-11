@@ -43,5 +43,9 @@
 	</array>
 	<key>LSApplicationCategoryType</key>
 	<string>Allows you to add photos to your meals.</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>fa-brands-400.ttf</string>
+	</array>
 </dict>
 </plist>
