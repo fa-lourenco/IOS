@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MealViewController.swift
 //  FoodTracker
 //
 //  Created by SQIMI_VM on 10/05/2018.
@@ -7,33 +7,64 @@
 //
 
 import UIKit
+import os.log
 
-class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+
+class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
 //  MARK: Properties
     @IBOutlet weak var textField: UITextField!
-    @IBOutlet weak var mealLabel: UILabel!
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var ratingControl: ratingControl!
     
+    var meal: Meal?
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    
+    @IBAction func CancelButton(_ sender: UIBarButtonItem) {
+        
+        let isPresentingInAddMealMode = presentingViewController is UINavigationController
+        
+        if isPresentingInAddMealMode{
+            dismiss(animated: true, completion: nil)
+        }
+        else if let owningNavigationController = navigationController{
+            owningNavigationController.popViewController(animated: true)
+        } else{
+            fatalError("MealViewController is not inside a naviagtaion contoller.")
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Handle the text field’s user input through delegate callbacks.
         textField.delegate = self
+        
+        if let meal = meal {
+            navigationItem.title = meal.name
+            textField.text = meal.name
+            photoImageView.image = meal.photo
+            ratingControl.rating = meal.rating
+            
+        }
+        
+        updateSaveButtonState()
+        
+        
     }
     
     //MARK: UITextFieldDelegate
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // Hide the keyboard.
         textField.resignFirstResponder()
         return true
     }
-    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        //  Disable save while editing
+        saveButton.isEnabled = false
+    }
     func textFieldDidEndEditing(_ textField: UITextField) {
-        mealLabel.text = textField.text
-        textField.text = ""
+        updateSaveButtonState()
+        navigationItem.title = textField.text
     }
     
     //MARK: UIImagePickerControllerDelegate
@@ -55,7 +86,24 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         // Dismiss the picker.
         dismiss(animated: true, completion: nil)
     }
+    
     //MARK: Actions
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        super.prepare(for: segue, sender: segue)
+        
+        guard let button = sender as? UIBarButtonItem, button  === saveButton else{
+            os_log("The save button was not pressed, cancelling", log:OSLog.default, type:.debug)
+            return
+        }
+        
+        let name = textField.text ?? ""
+        let photo = photoImageView.image
+        let rating = ratingControl.rating
+        
+        meal = Meal(name: name, photo: photo, rating: rating)
+        
+    }
+    
     @IBAction func tapToSelectImage(_ sender: UITapGestureRecognizer) {
         // Hide the keyboard.
         textField.resignFirstResponder()
@@ -71,13 +119,15 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         present(imagePickerController, animated: true, completion: nil)
     }
     
-    @IBAction func setDefaultText(_ sender: UIButton) {mealLabel.text = "Meal"
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
 //   Dispose of any resources that can be recreated.
     }
-
+    // MARK: Private Methods
+    private func updateSaveButtonState(){
+        let text = textField.text ?? ""
+        saveButton.isEnabled = !text.isEmpty
+        
+    }
 
 }

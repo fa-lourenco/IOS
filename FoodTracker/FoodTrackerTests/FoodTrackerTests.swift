@@ -21,6 +21,28 @@ class FoodTrackerTests: XCTestCase {
         super.tearDown()
     }
     
+    //    MARK: mealInitTest
+//    funcs must have "test" first
+    
+    func testMealInitSuccess(){
+        let zeroRatingMeal = Meal.init(name: "Zero", photo: nil, rating: 0)
+        XCTAssertNotNil(zeroRatingMeal)
+        
+        let highRatingMeal = Meal.init(name: "Positive", photo: nil, rating: 5)
+        XCTAssertNotNil(highRatingMeal)
+    }
+    
+    func testMealInitFail(){
+        let negativeRatingMeal = Meal.init(name: "Negative", photo: nil, rating: -1)
+        XCTAssertNil(negativeRatingMeal)
+        
+        let noNameMeal = Meal.init(name: "", photo: nil, rating: 2)
+        XCTAssertNil(noNameMeal)
+        
+        let muchRatingMeal = Meal.init(name: "Good", photo: nil, rating: 10)
+        XCTAssertNil(muchRatingMeal)
+    }
+    
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
@@ -32,5 +54,4 @@ class FoodTrackerTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-    
 }
