@@ -15,7 +15,7 @@
         <scene sceneID="veQ-Zt-7oS">
             <objects>
                 <tableViewController id="gcq-lx-xQK" customClass="MealTableViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="-1" sectionFooterHeight="-1" id="EN9-lE-Zq2">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="-1" sectionFooterHeight="-1" id="EN9-lE-Zq2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -34,29 +34,26 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="OgE-KC-S5X" customClass="ratingControl" customModule="FoodTracker" customModuleProvider="target">
-                                            <rect key="frame" x="16" y="50" width="160" height="25"/>
+                                        <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="OgE-KC-S5X" customClass="RatingControl" customModule="FoodTracker" customModuleProvider="target">
+                                            <rect key="frame" x="16" y="45" width="160" height="44"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="starCount">
-                                                    <integer key="value" value="5"/>
-                                                </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="size" keyPath="starSize">
-                                                    <size key="value" width="25" height="25"/>
+                                                    <size key="value" width="25" height="44"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </stackView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="placeholderImage" translatesAutoresizingMaskIntoConstraints="NO" id="Kkw-5s-JTN">
-                                            <rect key="frame" x="184" y="-1" width="136" height="121"/>
+                                            <rect key="frame" x="184" y="15" width="120" height="90"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="PhotoImageCell" destination="Kkw-5s-JTN" id="cEu-0L-C3G"/>
                                     <outlet property="nameLabel" destination="HXA-I5-LHC" id="ROx-j5-iut"/>
-                                    <outlet property="photoView" destination="Kkw-5s-JTN" id="7Yg-t6-nvd"/>
-                                    <outlet property="ratingControl" destination="OgE-KC-S5X" id="lGe-EN-0Kz"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="ShowDetail" id="A8q-qQ-R9z"/>
+                                    <outlet property="ratingControl" destination="OgE-KC-S5X" id="eTk-hB-uGY"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="ShowDetail" id="ho1-U8-5G2"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -68,7 +65,7 @@
                     <navigationItem key="navigationItem" title="Your Meals" id="M6R-Q9-DhA">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="xCc-7V-hUw">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="show" id="Vak-ms-jzP"/>
+                                <segue destination="GP4-Vw-Mgq" kind="presentation" identifier="AddItem" id="f2m-78-xus"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -80,13 +77,13 @@
         <!--New Meal-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MealViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MealViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="PR4-CQ-tcU">
-                                <rect key="frame" x="16" y="70" width="288" height="384"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="PR4-CQ-tcU">
+                                <rect key="frame" x="16" y="84" width="288" height="346"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What did you eat?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FrW-JW-cPK">
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="30"/>
@@ -94,67 +91,55 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="name"/>
                                     </textField>
-                                    <imageView contentMode="scaleToFill" ambiguous="YES" placeholderIntrinsicWidth="250" placeholderIntrinsicHeight="250" insetsLayoutMarginsFromSafeArea="NO" image="placeholderImage" translatesAutoresizingMaskIntoConstraints="NO" id="70K-ze-flO">
-                                        <rect key="frame" x="0.0" y="38" width="288" height="288"/>
+                                    <imageView contentMode="scaleAspectFit" ambiguous="YES" placeholderIntrinsicWidth="250" placeholderIntrinsicHeight="250" insetsLayoutMarginsFromSafeArea="NO" image="placeholderImage" translatesAutoresizingMaskIntoConstraints="NO" id="70K-ze-flO">
+                                        <rect key="frame" x="19" y="38" width="250" height="250"/>
                                         <gestureRecognizers/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="70K-ze-flO" secondAttribute="height" multiplier="1:1" id="CeL-6M-TlN"/>
-                                            <constraint firstAttribute="width" secondItem="70K-ze-flO" secondAttribute="height" multiplier="1:1" id="LJf-q9-MS2"/>
                                             <constraint firstAttribute="width" secondItem="70K-ze-flO" secondAttribute="height" multiplier="1:1" id="QuL-Pb-Lsz"/>
                                         </constraints>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="hT4-3o-cbn" appends="YES" id="1RA-jD-SLc"/>
                                         </connections>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ROt-ZB-ScD">
-                                        <rect key="frame" x="0.0" y="334" width="288" height="50"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleAspectFill" ambiguous="YES" distribution="equalSpacing" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="EDu-6E-vSU" customClass="ratingControl" customModule="FoodTracker" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="288" height="50"/>
-                                            </stackView>
-                                        </subviews>
+                                    <stackView opaque="NO" contentMode="scaleAspectFill" ambiguous="YES" distribution="equalSpacing" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="EDu-6E-vSU" customClass="RatingControl" customModule="FoodTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="296" width="288" height="50"/>
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="FrW-JW-cPK" secondAttribute="trailing" id="SKE-cr-Sex"/>
-                                    <constraint firstAttribute="trailing" secondItem="70K-ze-flO" secondAttribute="trailing" id="iTH-ED-dz5"/>
+                                    <constraint firstAttribute="trailing" secondItem="FrW-JW-cPK" secondAttribute="trailing" id="quU-U0-uvm"/>
                                 </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PR4-CQ-tcU" secondAttribute="trailing" constant="16" id="esD-Vr-wIH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PR4-CQ-tcU" secondAttribute="trailing" constant="16" id="jgz-n8-NTF"/>
+                            <constraint firstItem="PR4-CQ-tcU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="tbH-KO-Kgc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="PR4-CQ-tcU" secondAttribute="bottom" constant="173" id="wcn-Bs-yxu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="New Meal" id="1UX-hX-3Gs">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="KqU-XY-9wO">
+                    <navigationItem key="navigationItem" title="New Meal" id="3PY-fv-OGZ">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="VWS-yw-OQz">
                             <connections>
-                                <action selector="CancelButton:" destination="BYZ-38-t0r" id="HeC-ru-YR0"/>
+                                <action selector="CancelButtonAction:" destination="BYZ-38-t0r" id="ktt-Rs-ObT"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="qx6-Rl-n78">
-                            <connections>
-                                <segue destination="3vy-Rj-AdF" kind="unwind" unwindAction="unwindToMealListWithSender:" id="mn2-xB-1o4"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="7ar-Wx-KRs"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="cancelButton" destination="KqU-XY-9wO" id="fDQ-pi-got"/>
+                        <outlet property="nameTextField" destination="FrW-JW-cPK" id="Afh-zr-YgF"/>
                         <outlet property="photoImageView" destination="70K-ze-flO" id="yxe-FQ-mCh"/>
                         <outlet property="ratingControl" destination="EDu-6E-vSU" id="KG0-OA-He7"/>
-                        <outlet property="saveButton" destination="qx6-Rl-n78" id="Usf-OX-yoi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <exit id="3vy-Rj-AdF" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="hT4-3o-cbn">
                     <connections>
                         <action selector="tapToSelectImage:" destination="BYZ-38-t0r" id="6nw-jx-SGS"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="379" y="843"/>
+            <point key="canvasLocation" x="379" y="880"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dby-5s-lTK">
@@ -197,6 +182,6 @@
         <image name="placeholderImage" width="112" height="112"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="A8q-qQ-R9z"/>
+        <segue reference="ho1-U8-5G2"/>
     </inferredMetricsTieBreakers>
 </document>

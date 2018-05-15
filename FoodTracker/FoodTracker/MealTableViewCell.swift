@@ -1,5 +1,5 @@
 //
-//  mealCell.swift
+//  MealTableViewCell.swift
 //  FoodTracker
 //
 //  Created by SQIMI_VM on 14/05/2018.
@@ -9,18 +9,22 @@
 import UIKit
 
 class MealTableViewCell: UITableViewCell {
-    //    MARK: Properties
     
+    //MARK: Properties
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var photoView: UIImageView!
-    @IBOutlet weak var ratingControl: ratingControl!
-    
+    @IBOutlet weak var ratingControl: RatingControl!
+    @IBOutlet weak var PhotoImageCell: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        // Initialization code
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+        
+        // Configure the view for the selected state
     }
 }
+
+
