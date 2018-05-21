@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  weatherApp
+//  WeatherApp
 //
-//  Created by SQIMI_VM on 17/05/2018.
+//  Created by SQIMI_VM on 21/05/2018.
 //  Copyright © 2018 SQIMI.Fabio. All rights reserved.
 //
 
