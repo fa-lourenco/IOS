@@ -1,0 +1,13 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [{
+    'type': 'directory',
+    'name': '/Users/sqimi_vm/Documents/localProjects/IOS/SqimiTemplate/build/Debug-iphoneos/Font-Awesome-Swift/Font_Awesome_Swift.framework/Modules'
+    'contents': [{
+      'type': 'file',
+      'name': 'module.modulemap',
+      'external-contents': '/Users/sqimi_vm/Documents/localProjects/IOS/SqimiTemplate/build/Pods.build/Debug-iphoneos/Font-Awesome-Swift.build/unextended-module.modulemap',
+    }]
+  }]
+}

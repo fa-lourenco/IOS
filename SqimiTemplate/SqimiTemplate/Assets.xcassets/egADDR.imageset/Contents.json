@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "idiom" : "universal",
+      "filename" : "ANCIENT_SANSKRIT_ON_HEMP_BASED_PAPER._HEMP_WAS_A_COMMON_AND_DURABLE_FIBRE_IN_THE_PRODUCTION_OF_\"RAG\"_PAPER_FROM_200_BCE_TO_THE_1850_AD.jpg",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}
