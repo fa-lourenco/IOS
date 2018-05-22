@@ -46,7 +46,7 @@ internal class photoViewController: UIViewController, UIImagePickerControllerDel
     }
     
     //    MARK: Actions
-    // function to return to homescren (with NavigationController)
+    // function to return to homescreen (with NavigationController)
     @IBAction func cancel(_ sender: UIBarButtonItem) {
 //        Cancel Button
         dismiss(animated: true, completion: nil)

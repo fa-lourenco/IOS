@@ -15,6 +15,7 @@
 		AD86679720AD95DE00A299DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD86679520AD95DE00A299DB /* LaunchScreen.storyboard */; };
 		AD86679F20ADB26500A299DB /* photoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD86679E20ADB26500A299DB /* photoViewController.swift */; };
 		AD8667A120ADE6BB00A299DB /* album.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8667A020ADE6BB00A299DB /* album.swift */; };
+		ADC6266F20B315690035521A /* PopupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC6266E20B315690035521A /* PopupController.swift */; };
 		ADF35FF420AF2D7900229839 /* fa-regular-400.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ADF35FF320AF2D7900229839 /* fa-regular-400.ttf */; };
 		ADF35FF620AF2D8B00229839 /* fa-brands-400.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ADF35FF520AF2D8B00229839 /* fa-brands-400.ttf */; };
 /* End PBXBuildFile section */
@@ -32,6 +33,7 @@
 		AD86679820AD95DE00A299DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD86679E20ADB26500A299DB /* photoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = photoViewController.swift; sourceTree = "<group>"; };
 		AD8667A020ADE6BB00A299DB /* album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = album.swift; sourceTree = "<group>"; };
+		ADC6266E20B315690035521A /* PopupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupController.swift; sourceTree = "<group>"; };
 		ADF35FF320AF2D7900229839 /* fa-regular-400.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-regular-400.ttf"; sourceTree = "<group>"; };
 		ADF35FF520AF2D8B00229839 /* fa-brands-400.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-brands-400.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,6 +75,7 @@
 				AD86678C20AD95DE00A299DB /* AppDelegate.swift */,
 				AD86678E20AD95DE00A299DB /* homeViewController.swift */,
 				AD86679E20ADB26500A299DB /* photoViewController.swift */,
+				ADC6266E20B315690035521A /* PopupController.swift */,
 				AD8667A020ADE6BB00A299DB /* album.swift */,
 				AD86679020AD95DE00A299DB /* Main.storyboard */,
 				AD86679320AD95DE00A299DB /* Assets.xcassets */,
@@ -225,6 +228,7 @@
 			files = (
 				AD86678F20AD95DE00A299DB /* homeViewController.swift in Sources */,
 				AD8667A120ADE6BB00A299DB /* album.swift in Sources */,
+				ADC6266F20B315690035521A /* PopupController.swift in Sources */,
 				AD86678D20AD95DE00A299DB /* AppDelegate.swift in Sources */,
 				AD86679F20ADB26500A299DB /* photoViewController.swift in Sources */,
 			);

@@ -1,0 +1,20 @@
+PODS:
+  - DropDown (2.3.2)
+  - HEREMapsStarter (3.7.0)
+
+DEPENDENCIES:
+  - DropDown
+  - HEREMapsStarter
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - DropDown
+    - HEREMapsStarter
+
+SPEC CHECKSUMS:
+  DropDown: 7f87abecc28f9b4edad810fe1211c5c018c257e5
+  HEREMapsStarter: c965bb891705b2407d7b140dfbfc2fc4c72acea3
+
+PODFILE CHECKSUM: d090dfd871f676d44ef0dae2c5b641562060580b
+
+COCOAPODS: 1.5.2

@@ -8,6 +8,7 @@
 
 import UIKit
 import os.log
+import Font_Awesome_Swift
 
 class homeViewController: UIViewController {
     
@@ -23,11 +24,15 @@ class homeViewController: UIViewController {
     @IBOutlet weak var imgAddress: UIImageView!
     @IBOutlet weak var imgJob: UIImageView!
    
+    @IBOutlet weak var popup: UIView!
+    
     //    MARK: Built-ins
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        confirmBtn.isEnabled = checkRequirements(photoContainer: photosContainer)
+        popup.center.x = self.view.center.x
+        popup.isHidden=true
+        //confirmBtn.isEnabled = checkRequirements(photoContainer: photosContainer)
         
     }
 
@@ -59,6 +64,8 @@ class homeViewController: UIViewController {
                 if imgJob != nil {
                     photoView?.imageToSend = imgJob.image
             }
+        case "confirm":
+            print("Good")
         default:
             fatalError("Unexpected Segue \(segue.identifier ?? "")")
     
@@ -78,13 +85,31 @@ class homeViewController: UIViewController {
                 default:
                     return
             }
-            
         }
         updateImages(photos: photosContainer)
         confirmBtn.isEnabled = checkRequirements(photoContainer: photosContainer)
     }
     
+    //MARK: Actions
+    
+    @IBAction func delImage(_ sender: UIButton) {
+        let alert = UIAlertController(title:"Reset", message:"Do you wish to reset the photos?", preferredStyle: UIAlertControllerStyle.alert)
+        
+        alert.addAction(UIAlertAction(title:"Yes", style: UIAlertActionStyle.default, handler:{
+            action in self.clearPhotos(upPhotos: self.photosContainer)
+        }))
+        alert.addAction(UIAlertAction(title:"No", style: UIAlertActionStyle.default, handler:nil))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    @IBAction func closePopup(_ sender: UIButton) {
+        popup.isHidden = true
+        clearPhotos(upPhotos: photosContainer)
+        confirmBtn.isEnabled = true
+    }
     //MARK: Privates
+   
+    
     private func updateImages(photos: album){
         imgId.image = photos.photoId
         imgAddress.image = photos.photoAddress
@@ -101,4 +126,18 @@ class homeViewController: UIViewController {
         return false
         }
     }
+    
+    private func clearPhotos(upPhotos: album){
+        upPhotos.photoId = nil
+        upPhotos.photoAddress = nil
+        upPhotos.photoJob = nil
+        
+        updateImages(photos:upPhotos)
+    }
+    @IBAction func confirmButton(_ sender: UIButton) {
+        popup.isHidden=false
+        confirmBtn.isEnabled = false
+        
+    }
+    
 }
