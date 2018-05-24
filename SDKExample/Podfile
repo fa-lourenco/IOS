@@ -6,6 +6,8 @@ target 'SDKExample' do
   use_frameworks!
     pod 'HEREMapsStarter'
     pod 'DropDown'
+    pod 'Alamofire', '~>4.7'
+    pod 'MBProgressHUD', '~>1.1.0'
   # Pods for SDKExample
 
 end

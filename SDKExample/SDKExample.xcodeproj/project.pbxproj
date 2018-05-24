@@ -15,6 +15,8 @@
 		AD15285620B40E1E00345C48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD15285420B40E1E00345C48 /* LaunchScreen.storyboard */; };
 		AD4704CF20B476FB00149783 /* DropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD4704D120B476FB00149783 /* DropDown.framework */; };
 		AD4704D020B476FB00149783 /* Pods_SDKExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD4704D220B476FB00149783 /* Pods_SDKExample.framework */; };
+		ADCBE3FC20B59F3200BD5EE4 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADCBE3FD20B59F3200BD5EE4 /* Alamofire.framework */; };
+		ADCBE40320B5BDA700BD5EE4 /* Museum.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCBE40220B5BDA700BD5EE4 /* Museum.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -41,6 +43,8 @@
 		AD15285720B40E1E00345C48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD4704D120B476FB00149783 /* DropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD4704D220B476FB00149783 /* Pods_SDKExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_SDKExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADCBE3FD20B59F3200BD5EE4 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADCBE40220B5BDA700BD5EE4 /* Museum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Museum.swift; sourceTree = "<group>"; };
 		B7DDEFE234E79FB2FD66A8DF /* Pods-SDKExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SDKExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SDKExample/Pods-SDKExample.debug.xcconfig"; sourceTree = "<group>"; };
 		E11F245BFBA530F38429EA89 /* Pods-SDKExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SDKExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-SDKExample/Pods-SDKExample.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -50,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADCBE3FC20B59F3200BD5EE4 /* Alamofire.framework in Frameworks */,
 				AD4704CF20B476FB00149783 /* DropDown.framework in Frameworks */,
 				AD4704D020B476FB00149783 /* Pods_SDKExample.framework in Frameworks */,
 			);
@@ -92,6 +97,7 @@
 				AD15284B20B40E1E00345C48 /* FirstViewController.swift */,
 				AD15284D20B40E1E00345C48 /* SecondViewController.swift */,
 				AD15284F20B40E1E00345C48 /* Main.storyboard */,
+				ADCBE40220B5BDA700BD5EE4 /* Museum.swift */,
 				AD15285220B40E1E00345C48 /* Assets.xcassets */,
 				AD15285420B40E1E00345C48 /* LaunchScreen.storyboard */,
 				AD15285720B40E1E00345C48 /* Info.plist */,
@@ -102,6 +108,7 @@
 		AD4704CD20B476C700149783 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ADCBE3FD20B59F3200BD5EE4 /* Alamofire.framework */,
 				AD4704D120B476FB00149783 /* DropDown.framework */,
 				AD4704D220B476FB00149783 /* Pods_SDKExample.framework */,
 			);
@@ -204,13 +211,17 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SDKExample/Pods-SDKExample-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework",
 				"${PODS_ROOT}/HEREMapsStarter/framework/NMAKit.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DropDown.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NMAKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -227,6 +238,7 @@
 				AD15284E20B40E1E00345C48 /* SecondViewController.swift in Sources */,
 				AD15284A20B40E1E00345C48 /* AppDelegate.swift in Sources */,
 				AD15284C20B40E1E00345C48 /* FirstViewController.swift in Sources */,
+				ADCBE40320B5BDA700BD5EE4 /* Museum.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

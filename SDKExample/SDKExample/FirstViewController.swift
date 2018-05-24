@@ -13,8 +13,7 @@ import DropDown
 class FirstViewController: UIViewController {
     //MARK: Properties
     
-    @IBOutlet var map: NMAMapView!
-    
+    @IBOutlet var map: NMAMapView!    
     
     @IBOutlet weak var stylesView: UIView!
     let dDown = DropDown()
@@ -29,9 +28,33 @@ class FirstViewController: UIViewController {
         map.copyrightLogoPosition = NMALayoutPosition.bottomLeft
         
         stylesView.isHidden = true
-        dDown.dataSource = ["Normal Day", "Satellite Day", "Normal Night", "Reduced Day", "Reduced Night"]
+        dDown.dataSource = ["Satellite Day", "Normal Day", "Normal Night", "ReducedDay", "ReducedNight"]
+        
         
     }
+    
+    override func viewDidLoad() {
+        setupDropDown()
+    }
+    //    setup dropdown
+    
+    func setupDropDown(){
+        
+        dDown.anchorView = stylesView
+        // Action triggered on selection
+        dDown.selectionAction = {
+            [weak self] (index, item) in
+            switch(index){
+            case 0: self?.map.mapScheme = NMAMapSchemeSatelliteDay
+            case 1: self?.map.mapScheme = NMAMapSchemeNormalDay
+            case 2: self?.map.mapScheme = NMAMapSchemeNormalNight
+            case 3: self?.map.mapScheme = NMAMapSchemeReducedDay
+            case 4: self?.map.mapScheme = NMAMapSchemeReducedNight
+            default:return
+        }
+        }
+    }
+    
     //    MARK: Actions
     @IBAction func zoomIn(_ sender: UIButton) {
         map.zoomLevel=map.zoomLevel+1
@@ -43,7 +66,7 @@ class FirstViewController: UIViewController {
     @IBAction func ManageStylesPop(_ sender: UIButton) {
        stylesView.isHidden = !stylesView.isHidden
         if stylesView.isHidden{
-            dDown.anchorView = stylesView
+            
             dDown.hide()
         }
         else{
