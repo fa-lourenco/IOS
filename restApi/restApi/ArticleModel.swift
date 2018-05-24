@@ -6,4 +6,10 @@
 //  Copyright © 2018 SQIMI.Fabio. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+struct Article: Codable{
+    
+    let title: String
+    let description: String
+}
