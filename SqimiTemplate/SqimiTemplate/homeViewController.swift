@@ -32,7 +32,7 @@ class homeViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         popup.center.x = self.view.center.x
         popup.isHidden=true
-        //confirmBtn.isEnabled = checkRequirements(photoContainer: photosContainer)
+        confirmBtn.isEnabled = checkRequirements(photoContainer: photosContainer)
         
     }
 
@@ -107,9 +107,8 @@ class homeViewController: UIViewController {
         clearPhotos(upPhotos: photosContainer)
         confirmBtn.isEnabled = true
     }
-    //MARK: Privates
-   
     
+    //MARK: Privates
     private func updateImages(photos: album){
         imgId.image = photos.photoId
         imgAddress.image = photos.photoAddress

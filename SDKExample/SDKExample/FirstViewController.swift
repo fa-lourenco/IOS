@@ -18,26 +18,33 @@ class FirstViewController: UIViewController {
     @IBOutlet weak var stylesView: UIView!
     let dDown = DropDown()
     
+    var y: Double?
+    var x: Double?
     
     //MARK: Built-ins
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        map.useHighResolutionMap = true
-        map.zoomLevel = 13
-        map.set(geoCenter: NMAGeoCoordinates(latitude: 38.7, longitude: -9.14),animation: .linear)
-        map.copyrightLogoPosition = NMALayoutPosition.bottomLeft
+        print(x)
+        print(y)
+        mapWithCoordinates(lat: y ?? 0.0, long: x ?? 0.0)
         
-        stylesView.isHidden = true
         dDown.dataSource = ["Satellite Day", "Normal Day", "Normal Night", "ReducedDay", "ReducedNight"]
-        
-        
     }
     
     override func viewDidLoad() {
         setupDropDown()
     }
-    //    setup dropdown
     
+    //set map with coordinates
+    
+    func mapWithCoordinates(lat: Double, long: Double){
+        map.useHighResolutionMap = true
+        map.zoomLevel = 13
+        map.set(geoCenter: NMAGeoCoordinates(latitude: lat, longitude: long),animation: .linear)
+        map.copyrightLogoPosition = NMALayoutPosition.bottomLeft
+        
+    }
+    //    setup dropdown
     func setupDropDown(){
         
         dDown.anchorView = stylesView

@@ -8,13 +8,22 @@
 
 import Foundation
 
-struct spatialReference: Decodable {
+struct spatialReference: Codable {
     
     let wkid: Int
     let latestWkid: Int
 }
+struct fields: Codable {
+    let fName: String
+    let fType: String
+    let fAlias: String
+    let fSqlType: String
+    let fLength: Int
+    let fDomain: String
+    let fDefaultValue: Int
+}
 
-struct atributes: Decodable {
+struct atributes: Codable {
     
     let objectId: Int
     let codSig: Int
@@ -31,18 +40,23 @@ struct atributes: Decodable {
     let globalId: String
 }
 
-struct location: Decodable {
+struct location: Codable {
     let latitude: Double
     let longitude: Double
 }
 
-struct MuseumJSON: Decodable {
+struct features: Codable{
+    let local: location
+    let atrib: atributes
+}
+
+struct MuseumInfo: Codable {
     
     let objId: String
     let globalId: String
     let geometryType: String
-    var spRef: spatialReference
-    var att: atributes
-    var loc: location
+    let spRef: spatialReference
+    let fie: fields
+    let feat: features
         
 }
