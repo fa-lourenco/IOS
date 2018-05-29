@@ -58,7 +58,7 @@ class SecondViewController: UIViewController {
         //Weather API
         let openWeatherKey = "8285d200513a2f35875b7f4e1ce3e66a"
         //let weatherPlace = "Lisbon,PT"
-        let jsonWeatherApiCall = "http://api.openweathermap.org/data/2.5/weather"
+        let jsonWeatherApiCall = "https://api.openweathermap.org/data/2.5/weather"
         let jsonWeather = jsonWeatherApiCall+"?q="+weatherPlace.text!+"&appId="+"\(openWeatherKey)"
         print (jsonWeather)
         
@@ -78,8 +78,12 @@ class SecondViewController: UIViewController {
                         print (weatherData)
                     }
                 
-            }catch let error{
+            }catch let JsonError {
+                DispatchQueue.main.async {
+                    print(JsonError)
                     self.viewContainer.isHidden = true
+                    
+                }
             }
             
             }.resume()

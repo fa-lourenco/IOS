@@ -24,8 +24,6 @@ class FirstViewController: UIViewController {
     //MARK: Built-ins
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print(x)
-        print(y)
         mapWithCoordinates(lat: y ?? 0.0, long: x ?? 0.0)
         
         dDown.dataSource = ["Satellite Day", "Normal Day", "Normal Night", "ReducedDay", "ReducedNight"]

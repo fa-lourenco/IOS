@@ -22,7 +22,7 @@ struct Root: Decodable {
     let weather: [weatherProp]
     let base: String
     let main: miscProp
-    let visibility: Int
+    //let visibility: Int
     let wind: windProp
     let clouds: cloudProp
     let dt: Double
@@ -49,10 +49,13 @@ struct weatherProp: Decodable {
 struct miscProp: Decodable {
     
     let temp: Double
-    let pressure: Int
+    let pressure: Double
     let humidity: Int
     let temp_min: Double
     let temp_max: Double
+    let sea_level: Double
+    let grnd_level: Double
+    
 }
 
 struct windProp: Decodable{
@@ -68,8 +71,6 @@ struct cloudProp: Decodable {
 
 struct configProp: Decodable{
     
-    let type: Int
-    let id: Int
     let message: Double
     let country: String
     let sunrise: Double
