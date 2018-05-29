@@ -10,23 +10,24 @@ import Foundation
 
 struct Concentration {
     
-    //MARK:Properties
+//  MARK:Properties
     private(set) var cards =  [Card]()
     
     private var oneFacedUpCard: Int?{
         get{
-            var faceCardIndex:Int?
-            
-            for index in cards.indices{
-                if cards[index].isFaceUp {
-                    if faceCardIndex == nil{
-                        faceCardIndex = index
-                    } else{
-                        return nil
-                    }
-                }
-            }
-            return faceCardIndex
+            return cards.indices.filter{cards[$0].isFaceUp}.oneAndOnly
+
+//            var faceCardIndex:Int?
+//            for index in cards.indices{
+//                if cards[index].isFaceUp {
+//                    if faceCardIndex == nil{
+//                        faceCardIndex = index
+//                    } else{
+//                        return nil
+//                    }
+//                }
+//            }
+//            return faceCardIndex
         }
         set (newValue) {
             for index in cards.indices{
@@ -37,7 +38,7 @@ struct Concentration {
         
     }
     
-    //MARK: Functions
+//  MARK: Functions
     mutating func chooseCard (at index: Int){
         assert(cards.indices.contains(index), "Concentration.chooseCard\(index) chosen index not in cards")
         if !cards[index].isMatched {
@@ -62,5 +63,12 @@ struct Concentration {
             cards += [card, card]
         }
     }
-    //TODO: Shuffe cards
+//  TODO: Shuffe cards
+}
+
+extension Collection {
+    var oneAndOnly: Element?{
+        return count == 1 ? first: nil
+    }
+    
 }
